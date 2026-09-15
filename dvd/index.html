@@ -1,1 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DVD</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../">Accueil</a>
+      <a href="../dvd/">DVD</a>
+      <a href="../livres/">Livres</a>
+    </nav>
+  </header>
 
+  <div class="container">
+    <h1>DVD</h1>
+    <div id="grid" class="grid"></div>
+  </div>
+
+  <script>
+    fetch("./data.json")
+      .then(r => r.json())
+      .then(items => {
+        const grid = document.getElementById("grid");
+        grid.innerHTML = items.map(item => `
+          <a class="card" href="${item.link || '#'}" target="${item.link ? '_blank' : '_self'}" rel="noreferrer">
+            <img class="poster" src="${item.image}" alt="${item.title || ''}">
+            <div class="caption">${item.title || ''}</div>
+          </a>
+        `).join("");
+      });
+  </script>
+</body>
+</html>
