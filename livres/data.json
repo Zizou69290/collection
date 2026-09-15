@@ -1,1 +1,4 @@
-
+[
+  { "title": "Livre 1", "image": "../images/livres/livre1.jpg" },
+  { "title": "Livre 2", "image": "../images/livres/livre2.jpg" }
+]
