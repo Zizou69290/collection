@@ -1,1 +1,87 @@
+:root{
+  --bg:#0b0f14;
+  --text:#e8eef7;
+  --muted:#9aa7b8;
+  --gap:10px;
+  --poster-w:180px; /* augmente/réduit la taille des affiches */
+  --radius:12px;
+}
 
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  position:sticky;
+  top:0;
+  background:rgba(11,15,20,.85);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  padding:14px 16px;
+  z-index:10;
+}
+
+nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+nav a{
+  color:var(--text);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.10);
+}
+
+nav a:hover{
+  border-color: rgba(255,255,255,.25);
+}
+
+.container{
+  padding:16px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+h1{
+  font-size:16px;
+  margin:0 0 12px 0;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--poster-w), 1fr));
+  gap: var(--gap);
+  align-items:start;
+}
+
+.card{
+  text-decoration:none;
+  color:inherit;
+}
+
+.poster{
+  width:100%;
+  aspect-ratio: 2 / 3;       /* ratio affiche portrait */
+  object-fit: contain;        /* image entière, jamais zoomée */
+  background: transparent;    /* pas de cadre gris */
+  border-radius: var(--radius);
+  display:block;
+}
+
+.caption{
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.25;
+  display:none; /* mets 'block' si tu veux afficher le titre sous l'affiche */
+}
